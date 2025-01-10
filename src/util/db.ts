@@ -1,6 +1,10 @@
 import { DataSource } from "typeorm"
 import dotenv from 'dotenv';    
-import { User } from "../entities/User";
+import { User} from "../entities/User";
+import { ProductType} from "../entities/ProductType";
+import { ProductTypeDetail} from "../entities/ProductTypeDetail";
+import { Product} from "../entities/Product";
+import { ProductDetail} from "../entities/ProductDetail";
 
 dotenv.config();
 
@@ -11,7 +15,7 @@ const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: "shop",
-  entities: [User],
+  entities: [User,ProductType,ProductTypeDetail,Product,ProductDetail],
   synchronize: true,
   logging: false,
 })
